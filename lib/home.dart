@@ -52,65 +52,68 @@ class _ValentineCardState extends State<_ValentineCard> {
       padding: const EdgeInsets.all(8.0),
       child: AnimatedSwitcher(
         duration: const Duration(milliseconds: 200),
-        child: Card(
-          key: ValueKey(hasAccepted),
-          child: Padding(
-            padding: const .all(24),
-            child: Column(
-              mainAxisSize: .min,
-              children: hasAccepted
-                  ? [
-                      Text(
-                        'YAY!!!',
-                        style: Theme.of(context).textTheme.headlineLarge,
-                      ),
-                      const Animg.asset(
-                        asset: 'assets/yay.json',
-                        height: 350,
-                      ),
-                    ]
-                  : [
-                      const Animg.asset(
-                        asset: 'assets/heart.json',
-                        height: 150,
-                      ),
-                      const SizedBox(height: 24),
-                      Text(
-                        'Selina, will you be my valentine?',
-                        style: Theme.of(context).textTheme.headlineLarge,
-                      ),
-                      const SizedBox(height: 48),
-                      Row(
-                        mainAxisSize: .min,
-                        children: [
-                          FilledButton(
-                            onPressed: () {
-                              setState(() {
-                                hasAccepted = true;
-                              });
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'Yes',
-                                style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
+        child: SizedBox(
+          width: double.infinity,
+          child: Card(
+            key: ValueKey(hasAccepted),
+            child: Padding(
+              padding: const .all(24),
+              child: Column(
+                mainAxisSize: .min,
+                children: hasAccepted
+                    ? [
+                        Text(
+                          'YAY!!!',
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
+                        const Animg.asset(
+                          asset: 'assets/yay.json',
+                          height: 350,
+                        ),
+                      ]
+                    : [
+                        const Animg.asset(
+                          asset: 'assets/heart.json',
+                          height: 150,
+                        ),
+                        const SizedBox(height: 24),
+                        Text(
+                          'Selina, will you be my valentine?',
+                          style: Theme.of(context).textTheme.headlineLarge,
+                        ),
+                        const SizedBox(height: 48),
+                        Row(
+                          mainAxisSize: .min,
+                          children: [
+                            FilledButton(
+                              onPressed: () {
+                                setState(() {
+                                  hasAccepted = true;
+                                });
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Yes',
+                                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Colors.white),
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 64),
-                          OutlinedButton(
-                            onPressed: () => showConfirmation(context),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                'No',
-                                style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).primaryColor),
+                            const SizedBox(width: 64),
+                            OutlinedButton(
+                              onPressed: () => showConfirmation(context),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  'No',
+                                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: Theme.of(context).primaryColor),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+              ),
             ),
           ),
         ),
